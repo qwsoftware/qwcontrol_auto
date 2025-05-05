@@ -27,10 +27,10 @@ CT-J03: Acessar os detalhes de um Job
 
 CT-J04: Ativar execução para múltiplos jobs
     Dado que estou na aba "Jobs"
-    # E selecionei múltiplos jobs
-    # Quando escolho a ação "Ativar execução"
-    # E confirmo a operação
-    # Então os jobs devem ter a execução ativada
+    E selecionei múltiplos jobs
+    Quando escolho a ação "Ativar execução"
+    E confirmo a operação
+    Então os jobs devem ter a execução ativada
 
 CT-J05 - Criar um job
     Dado que estou na aba "Jobs"
@@ -42,3 +42,8 @@ CT-J06 - Deletar um job
     Dado que estou na aba "Jobs"
     Quando clico em Ações e depois em "Excluir essa tarefa"
     Então devo vizualizar a mensagem de exclusão
+
+CT-J07: Visualizar status de agendamento
+    Dado que estou na aba "Jobs"
+    # Quando um job está agendado
+    # Então deve ser exibido o tempo restante até a próxima execução

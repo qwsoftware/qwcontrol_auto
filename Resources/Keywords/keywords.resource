@@ -255,3 +255,24 @@ Quando clico no nome do job
 
 Então devo ser redirecionado para a tela de detalhes desse job
     Page Should Contain Element    locator=//a[contains(.,'Estatísticas')]
+
+E selecionei múltiplos jobs
+    Wait Until Element Is Visible    locator=//button[@type='button'][contains(.,'Ações do job')]
+    Click Element    locator=//button[@type='button'][contains(.,'Ações do job')]
+    Wait Until Element Is Visible    locator=//a[contains(.,'Edição em massa')]
+    Click Element    locator=//a[contains(.,'Edição em massa')]
+    Select Checkbox    locator=(//input[contains(@type,'checkbox')])[5]
+    Select Checkbox    locator=(//input[contains(@type,'checkbox')])[6]
+
+Quando escolho a ação "Ativar execução"
+    Click Element    locator=//button[@type='button'][contains(.,'Executar a ação')]
+    Wait Until Element Is Visible    locator=//a[@data-toggle='modal'][contains(.,'Ativar execução')]
+    Click Element    locator=//a[@data-toggle='modal'][contains(.,'Ativar execução')]
+
+E confirmo a operação
+    Wait Until Element Is Visible    locator=//input[contains(@name,'_action_flipExecutionEnabledBulk')]
+    Click Element    locator=//input[contains(@name,'_action_flipExecutionEnabledBulk')]
+
+Então os jobs devem ter a execução ativada
+    Wait Until Element Is Visible    locator=//li[contains(.,'A execução do job foi ativada para: FluxoCondicionais/Job001')]
+    Page Should Contain Element    locator=//li[contains(.,'A execução do job foi ativada para:')]
