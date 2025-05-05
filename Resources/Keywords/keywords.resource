@@ -5,7 +5,7 @@ Resource    ../Screens/setup.resource
 *** Keywords ***
 Abrir Navegador
     [Arguments]     ${url}
-    Open Browser    ${url}       headlesschrome
+    Open Browser    ${url}       chrome
     Maximize Browser Window
 
 Fechar Navegador
@@ -150,10 +150,6 @@ Quando clico na aba Dashboard
 Então devo visualizar o painel do Dashboard
     Wait Until Element Is Visible    locator=//span[@class='text-h3'][contains(.,'Dashboard')]
 
-Quando clico na aba jobs
-    Wait Until Element Is Visible    locator=//i[contains(@class,'vsm--icon fas fa-list-ol fa-lg')]
-    Click Element                    locator=//i[contains(@class,'vsm--icon fas fa-list-ol fa-lg')]
-
 Então devo visualiza a tela de jobs
     Wait Until Element Is Visible    locator=//a[@class='link-quiet'][contains(.,'Todos os Jobs')]
 
@@ -162,9 +158,6 @@ Quando clico na aba jobs e vizualizo a tela de jobs
     Click Element                    locator=//i[contains(@class,'vsm--icon fas fa-list-ol fa-lg')]
     Wait Until Element Is Visible    locator=//a[@class='link-quiet'][contains(.,'Todos os Jobs')]
    
-E clico na aba jobs
-    Quando clico na aba jobs
-
 E digito parte do nome no campo de busca e clico em buscar
     Input Text    locator=//input[contains(@type,'search')]    text=fluxo
     Click Element    locator=//input[contains(@name,'Search')]
@@ -225,3 +218,40 @@ E clico em "Ações" e "Vizualizar Calendario"
     Wait Until Element Is Visible    locator=(//a[@role='button'][contains(.,'Visualizar Calendário')])[1]
     Click Element                    locator=(//a[@role='button'][contains(.,'Visualizar Calendário')])[1]
 
+Dado que estou na aba "Jobs"
+    Dado que estou logado na aplicação
+    Wait Until Element Is Visible    locator=//i[contains(@class,'vsm--icon fas fa-list-ol fa-lg')]
+    Click Element                    locator=//i[contains(@class,'vsm--icon fas fa-list-ol fa-lg')]
+
+Quando eu digito o nome do JOB no campo de filtro por nome
+    [Arguments]    ${jobname}
+    Wait Until Element Is Enabled    locator=//input[contains(@type,'search')]
+    Input Text    locator=//input[@placeholder='Buscar']    text=${jobname}
+    Click Element    locator=//input[contains(@id,'Search')]
+
+Então apenas os jobs com nome correspondente devem ser exibidos
+    [Arguments]    ${jobname}
+    Wait Until Element Is Visible    locator=//span[@class='text-info'][contains(.,'${jobname}')]
+
+E um job chamado filtrado está listado
+    [Arguments]    ${jobname}
+    Quando eu digito o nome do JOB no campo de filtro por nome    ${jobname}
+    Então apenas os jobs com nome correspondente devem ser exibidos    ${jobname}
+
+Quando eu clico no botão de execução do job
+    [Arguments]    ${jobname}
+    Click Element    locator=//div[@class='jobname job_list_row hover-reveal-hidden' and @data-job-name='Job001']//a[contains(@class, 'act_execute_job')]
+    Wait Until Element Is Visible    locator=//button[@type='submit'][contains(.,'Executar')]
+    Click Element    locator=//button[@type='submit'][contains(.,'Executar')]
+
+Então o job deve ser iniciado com sucesso
+    Wait Until Element Is Visible    locator=//span[contains(@class,' execstate execstatedisplay overall')]
+    Page Should Contain Element    locator=//span[contains(@class,' execstate execstatedisplay overall')]
+
+Quando clico no nome do job
+    [Arguments]    ${jobname}
+    Wait Until Element Is Visible    locator=(//a[@href='/project/QaTestesFuncionais/job/show/7b2abd42-7b04-49ef-ace8-f0e55ddbd2dc'][contains(.,'Job001')])[1]
+    Click Element    locator=(//a[@href='/project/QaTestesFuncionais/job/show/7b2abd42-7b04-49ef-ace8-f0e55ddbd2dc'][contains(.,'Job001')])[1]
+
+Então devo ser redirecionado para a tela de detalhes desse job
+    Page Should Contain Element    locator=//a[contains(.,'Estatísticas')]

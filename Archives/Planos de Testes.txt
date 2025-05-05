@@ -1,0 +1,7 @@
+Sempre após atualizações:
+
+- Execuções de teste respeitando horarios
+- Fluxo de JOBS
+- Dependencias entre projetos
+- Hold/Release
+- Pendencias da Daily Hab/Des
