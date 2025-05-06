@@ -42,8 +42,3 @@ CT-J06 - Deletar um job
     Dado que estou na aba "Jobs"
     Quando clico em Ações e depois em "Excluir essa tarefa"
     Então devo vizualizar a mensagem de exclusão
-
-CT-J07: Visualizar status de agendamento
-    Dado que estou na aba "Jobs"
-    # Quando um job está agendado
-    # Então deve ser exibido o tempo restante até a próxima execução
