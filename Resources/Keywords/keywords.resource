@@ -98,6 +98,10 @@ Dado que estou logado na aplicação e clico na aba Editar nós
     Mouse Over                       locator=//i[contains(@class,'vsm--icon fas fa-cogs fa-lg')]
     Wait Until Element Is Visible    locator=//span[contains(.,'Editar nós')]
     Click Element                    locator=//span[contains(.,'Editar nós')]
+    Element Should Be Visible    locator=//a[contains(@id,'2')][@role='tab'][contains(.,'Nós')]
+    Element Should Be Visible    locator=//a[contains(@id,'1')][@role='tab'][contains(.,'Editar')]
+    Element Should Be Visible    locator=//a[contains(@id,'3')][@role='tab'][contains(.,'Modificadores')]
+    Element Should Be Visible    locator=//a[contains(@id,'4')][@role='tab'][contains(.,'Configuração')]
 
 Quando clico em "Adicionar novo Recurso de Nó" e preencho os dados nescessario
     Wait Until Element Is Enabled    locator=(//button[@class='btn btn-primary'][contains(.,'Adicionar um Novo Nó')])[1]
@@ -168,7 +172,18 @@ Então devo vizualizar o texto de busca
 Quando clico no botão "+ Novo job"
     Wait Until Element Is Visible    locator=//a[contains(@class,'btn btn-primary')]
     Click Element                    locator=//a[contains(@class,'btn btn-primary')]
+    Element Should Be Visible        locator=//a[contains(.,'Detalhes')]
+    Element Should Be Visible        locator=//a[contains(.,'Fluxo de trabalho')]
+    Element Should Be Visible        locator=//a[contains(.,'Nós')]
+    Element Should Be Visible        locator=//a[contains(.,'Agendamento')]
+    Element Should Be Visible        locator=//a[contains(.,'Notificações')]
+    Element Should Be Visible        locator=//a[contains(.,'Plugins de Execução')]
+    Element Should Be Visible        locator=//a[contains(.,'Outros')]
+    Element Should Be Visible        locator=//a[contains(.,'Gerenciar Recursos')]
+    Element Should Be Visible        locator=//a[contains(.,'Calendário')]
+    Element Should Be Visible        locator=//a[contains(.,'Ação')]
 
+    
 E preencho todos os campos nescessarios
     Wait Until Element Is Visible    locator=//input[contains(@name,'jobName')]
     Input Text                       locator=//input[contains(@name,'jobName')]    text=testeautomação
