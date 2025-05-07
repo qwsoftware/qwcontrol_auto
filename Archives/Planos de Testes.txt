@@ -3,5 +3,11 @@ Sempre após atualizações:
 - Execuções de teste respeitando horarios
 - Fluxo de JOBS
 - Dependencias entre projetos
-- Hold/Release
+- Hold/Release(Individual e Daily)
 - Pendencias da Daily Hab/Des
+- Execução dos jobs após compose down(Compose down no periodo do agendamento)
+
+Novas atualizações:
+
+-
+-
