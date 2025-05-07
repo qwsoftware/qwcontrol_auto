@@ -1,13 +1,9 @@
-Sempre após atualizações:
+Testar sempre após atualizações:
 
 - Execuções de teste respeitando horarios
 - Fluxo de JOBS
 - Dependencias entre projetos
 - Hold/Release(Individual e Daily)
 - Pendencias da Daily Hab/Des
-- Execução dos jobs após compose down(Compose down no periodo do agendamento)
-
-Novas atualizações:
-
--
--
+- Execução dos jobs após compose down no periodo do agendamento
+- Opção para alterar horário de execução do JOB sem alterar o agendamento padrão
