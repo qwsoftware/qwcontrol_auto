@@ -21,10 +21,10 @@ tranferir:
 get
 put
 
-docker compose up -d            # Sobe tudo de novo, usando os volumes existentes (se existirem)
-docker compose down           # seguro, mantém banco
+docker compose up -d         # Sobe tudo de novo, usando os volumes existentes (se existirem)
+docker compose down          # seguro, mantém banco
 docker compose down -v       # zera banco e volumes
-docker compose stop              # Apenas pausa os containers (não remove nada)
+docker compose stop          # Apenas pausa os containers (não remove nada)
 
 remover image:
 docker compose down
