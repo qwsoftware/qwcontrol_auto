@@ -7,3 +7,5 @@ Testar sempre após atualizações:
 - Pendencias da Daily Hab/Des
 - Execução dos jobs após compose down no periodo do agendamento
 - Opção para alterar horário de execução do JOB sem alterar o agendamento padrão
+
+
