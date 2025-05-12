@@ -1,0 +1,68 @@
+abrir maquina:
+xfreerdp /v:192.168.220.84 /u:lucasrocha /p:lucasrocha /multimon
+
+conectar via ssh:
+ssh lucasrocha@192.168.220.84
+ssh qwcontrol@192.168.220.106
+ssh qw@10.1.1.51
+ssh qw@10.1.1.52
+
+conectar na maquina via terminal(Transferencia:)
+sftp -r lucasrocha@192.168.220.84
+sftp -r qwcontrol@192.168.220.106
+stfp -r qw@10.1.1.51
+stfp -r qw@10.1.1.52
+
+ativar comando transferencia:
+sudo systemctl enable sshd
+sudo systemctl start sshd
+
+tranferir:
+get
+put
+
+docker compose up -d            # Sobe tudo de novo, usando os volumes existentes (se existirem)
+docker compose down           # seguro, mantém banco
+docker compose down -v       # zera banco e volumes
+docker compose stop              # Apenas pausa os containers (não remove nada)
+
+remover image:
+docker compose down
+docker images
+docker rmi <IMAGE ID>
+
+atualizar image docker opção 1:
+docker compose up -d --pull always
+
+atualizar image docker opção 2:
+docker compose down
+docker image pull qwsoftware/qwcontrol:<versão>
+docker compose up -d
+
+acompanhar docker subir:
+docker ps
+docker logs -f <IMAGE ID>
+
+dar build na image na local:
+./gradlew clean
+./gradlew officialBuild
+docker compose up -d
+
+acessar AD:
+smb://192.168.1.99/qwsoftware/
+
+ajustar fuso horario no docker compose:
+TZ: America/Sao_Paulo
+
+acessar docker via ssh:
+docker exec -it <id image> bash
+
+sqlserver: 106
+      QWCONTROL_DATABASE_USERNAME: sa
+      QWCONTROL_DATABASE_PASSWORD: Senha@123
+      QWCONTROL_DATABASE_URL: jdbc:sqlserver://sqlserver:1433;databaseName=qwcontrol
+
+sqlserver 253:
+      QWCONTROL_DATABASE_USERNAME: qwcontrol
+      QWCONTROL_DATABASE_PASSWORD: qwcontrol
+      QWCONTROL_DATABASE_URL: jdbc:sqlserver://10.0.60.253:1433;databaseName=qwcontrol
