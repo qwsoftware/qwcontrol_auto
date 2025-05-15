@@ -1,10 +1,10 @@
 Testar sempre após atualizações:
 
-- Execuções de teste respeitando horarios ok
-- Fluxo de JOBS ok
-- Dependencias entre projetos ok
-- Hold/Release(Individual e Daily) ok
+- Execuções de teste respeitando horarios 
+- Fluxo de JOBS 
+- Dependencias entre projetos 
+- Hold/Release(Individual e Daily) 
 - Pendencias da Daily Hab/Des
-- Execução dos jobs após compose down no periodo do agendamento ok
-- Opção para alterar horário de execução do JOB sem alterar o agendamento padrão ok
-- Virada da Daily ok
+- Execução dos jobs após compose down no periodo do agendamento 
+- Opção para alterar horário de execução do JOB sem alterar o agendamento padrão 
+- Virada da Daily 
