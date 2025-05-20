@@ -5,7 +5,7 @@ Resource    ../Screens/setup.resource
 *** Keywords ***
 Abrir Navegador
     [Arguments]     ${url}
-    Open Browser    ${url}       chrome
+    Open Browser    ${url}       headlesschrome    
     Maximize Browser Window
 
 Fechar Navegador
