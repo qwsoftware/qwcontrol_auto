@@ -2,9 +2,12 @@ Testar sempre após atualizações:
 
 - Execuções de teste respeitando horarios 
 - Fluxo de JOBS 
+- ForceRun
 - Dependencias entre projetos 
-- Hold/Release(Individual e Daily) 
+- Hold/Release(Individual e Full) 
 - Pendencias da Daily Hab/Des
 - Execução dos jobs após compose down no periodo do agendamento 
+- Entrada correta da daily após compose down no périodo que a daily vira
 - Opção para alterar horário de execução do JOB sem alterar o agendamento padrão 
 - Entrada correta na Virada da Daily
+- Entrada correta na Virada da Daily com Servidor Off
