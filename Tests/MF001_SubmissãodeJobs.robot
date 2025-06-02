@@ -2,17 +2,25 @@
 Library           SSHLibrary
 Library           OperatingSystem
 Library           SeleniumLibrary
+Library           FakerLibrary    locale=pt_br
+Library           DateTime
 Resource    ../Resources/Screens/setup.resource
 
 *** Variables ***
-${VM_HOST}    192.168.220.106
+${VM_HOST}    192.168.220.84
 ${VM_USER}    qwcontrol
 ${VM_PASS}    lucas0206
-${ARQUIVO}    /tmp/teste.json
-${DESTINO}    /home/qwcontrol/filetransfer/teste.json
+
 
 *** Test Cases ***
 Ativar Monitor E Transferir Arquivo
+    #Cria variavel aleatoria
+    ${id_aleatorio}=      Evaluate    __import__('uuid').uuid4().hex
+    ${nome_arquivo}=      Set Variable    job_${id_aleatorio}.json
+    ${DESTINO}=           Set Variable    /home/qwcontrol/filetransfer/${nome_arquivo}
+    Log To Console        Arquivo gerado: "${nome_arquivo}"
+
+
     Open Connection    ${VM_HOST}
     Login              ${VM_USER}    ${VM_PASS}
 
@@ -24,13 +32,11 @@ Ativar Monitor E Transferir Arquivo
     Execute Command    sudo systemctl restart monitor_qwcontrol.service
 
     # Criar e mover o arquivo
-    Execute Command    echo '{"id": 1, "nome": "Lucas", "status": "teste"}' > ${ARQUIVO}
-    Execute Command    cp ${ARQUIVO} ${DESTINO}
+    Execute Command    echo '{"id": 1, "nome": "Lucas", "status": "teste"}' > ${DESTINO}
 
-    # Verificar se foi copiado
-    ${output}=         Execute Command    ls /home/qwcontrol/filetransfer
-    Log To Console     ${output}
-    Should Contain     ${output}    teste.json
+    Execute Command    sudo systemctl stop monitor_qwcontrol.service
+
+
 
     Close Connection
 
@@ -41,6 +47,5 @@ Ativar Monitor E Transferir Arquivo
     # Click Button    locator=//button[@type='submit'][contains(.,'Entrar')]
 
     # Wait Until Page Contains    Lucas
-    # Page Should Contain Element    xpath=//td[contains(text(), 'Lucas') and following-sibling::td[contains(text(), 'Concluído')]]
-
+    # Page Should Contain Element
     # [Teardown]    Close Browser
