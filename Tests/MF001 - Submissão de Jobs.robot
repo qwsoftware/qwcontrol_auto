@@ -5,31 +5,32 @@ Library           SeleniumLibrary
 Resource    ../Resources/Screens/setup.resource
 
 *** Variables ***
-${VM_HOST}        192.168.220.106
-${VM_USER}        qwcontrol
-${VM_PASS}        lucas0206
-${SH_FILE}        /opt/qwcontrol-watcher/monitor_qwcontrol.sh
-${ARQUIVO}        /tmp/teste.json
-${DESTINO}        /home/qwcontrol/filetransfer/teste.json
-${URL_WEB}        http://192.168.220.106:4440
-${USER}           admin
-${PASS}           admin
+${VM_HOST}    192.168.220.106
+${VM_USER}    qwcontrol
+${VM_PASS}    lucas0206
+${ARQUIVO}    /tmp/teste.json
+${DESTINO}    /home/qwcontrol/filetransfer/teste.json
 
 *** Test Cases ***
-Ativar Monitor E Verificar Job
-    # 1. Conectar na VM e iniciar o serviço
+Ativar Monitor E Transferir Arquivo
     Open Connection    ${VM_HOST}
     Login              ${VM_USER}    ${VM_PASS}
 
-    Write              sudo chmod +x /opt/qwcontrol-watcher/monitor_qwcontrol.sh
-    Write              sudo systemctl daemon-reexec
-    Write              sudo systemctl daemon-reload
-    Write              sudo systemctl enable monitor_qwcontrol.service
-    Write              sudo systemctl start monitor_qwcontrol.service
+    # Comandos diretos
+    Execute Command    sudo chmod +x /opt/qwcontrol-watcher/monitor_qwcontrol.sh
+    Execute Command    sudo systemctl daemon-reexec
+    Execute Command    sudo systemctl daemon-reload
+    Execute Command    sudo systemctl enable monitor_qwcontrol.service
+    Execute Command    sudo systemctl restart monitor_qwcontrol.service
 
-    # 2. Criar o arquivo e mover para o filetransfer
-    Write              echo '{"id": 1, "nome": "Lucas", "status": "teste"}' > ${ARQUIVO}
-    Write              cp ${ARQUIVO} ${DESTINO}
+    # Criar e mover o arquivo
+    Execute Command    echo '{"id": 1, "nome": "Lucas", "status": "teste"}' > ${ARQUIVO}
+    Execute Command    cp ${ARQUIVO} ${DESTINO}
+
+    # Verificar se foi copiado
+    ${output}=         Execute Command    ls /home/qwcontrol/filetransfer
+    Log To Console     ${output}
+    Should Contain     ${output}    teste.json
 
     Close Connection
 
