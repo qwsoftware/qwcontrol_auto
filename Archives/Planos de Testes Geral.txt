@@ -13,3 +13,4 @@ Testar sempre após atualizações:
 - Execução dos jobs após compose down no periodo do agendamento ok
 - Entrada correta na Virada da Daily ok
 - Entrada correta na Virada da Daily com Servidor Off
+- E-mail
