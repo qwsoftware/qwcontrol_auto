@@ -1,16 +1,33 @@
+PostgreSQL:
 Testar sempre após atualizações:
 
 - Execuções de teste respeitando horarios OK
 - Fluxo de JOBS OK
 - Dependencias entre projetos OK
 - ForceRun OK
-- ForceRun de JOB pelo monitoramento ok
-- Execução de JOB pelo operador OK
+- ForceRun de JOB pelo monitoramento OK
 - Hold/Release(Individual e Full) OK
-- Pendencias da Daily Hab/Des OK
-- Opção para alterar horário de execução do JOB sem alterar o agendamento padrão ok
-- Cadastro de Incidente ok
-- Execução dos jobs após compose down no periodo do agendamento ok
-- Entrada correta na Virada da Daily ok
+- Pendencias da Daily Hab/Des ok
+- Opção para alterar horário de execução do JOB sem alterar o agendamento padrão OK
+- Cadastro de Incidente OK
+- Execução dos jobs após compose down no periodo do agendamento OK
+- Entrada correta na Virada da Daily OK
+- Entrada correta na Virada da Daily com Servidor Off OK
+- E-mail OK
+
+SQLserver:
+Testar sempre após atualizações:
+
+- Execuções de teste respeitando horarios OK
+- Fluxo de JOBS OK
+- Dependencias entre projetos OK
+- ForceRun OK
+- ForceRun de JOB pelo monitoramento 
+- Hold/Release(Individual e Full) OK
+- Pendencias da Daily Hab/Des 
+- Opção para alterar horário de execução do JOB sem alterar o agendamento padrão OK
+- Cadastro de Incidente OK
+- Execução dos jobs após compose down no periodo do agendamento OK
+- Entrada correta na Virada da Daily OK
 - Entrada correta na Virada da Daily com Servidor Off
-- E-mail
+- E-mail OK
