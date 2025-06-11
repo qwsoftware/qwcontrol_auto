@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.3 on linux)" generated="2025-06-11T11:20:42.272606" rpa="false" schemaversion="5">
+<suite id="s1" name="MF001 SubmissãodeJobs" source="/home/lucasrocha/QWsoftware/qwcontrol_auto/Tests/MF001_SubmissãodeJobs.robot">
+<test id="s1-t1" name="Ativar Monitor E Transferir Arquivo" line="14">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-06-11T11:20:42.384594" level="INFO">${id_aleatorio} = cf8576d1d10d45598c3c9e101ec0cabb</msg>
+<var>${id_aleatorio}</var>
+<arg>__import__('uuid').uuid4().hex</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-06-11T11:20:42.384414" elapsed="0.000205"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-06-11T11:20:42.384920" level="INFO">${nome_arquivo} = job_cf8576d1d10d45598c3c9e101ec0cabb.json</msg>
+<var>${nome_arquivo}</var>
+<arg>job_${id_aleatorio}.json</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-06-11T11:20:42.384770" elapsed="0.000171"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-06-11T11:20:42.385126" level="INFO">${DESTINO} = /home/qwcontrol/filetransfer/job_cf8576d1d10d45598c3c9e101ec0cabb.json</msg>
+<var>${DESTINO}</var>
+<arg>/home/qwcontrol/filetransfer/${nome_arquivo}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-06-11T11:20:42.385037" elapsed="0.000104"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Arquivo gerado: "${nome_arquivo}"</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-06-11T11:20:42.385229" elapsed="0.000105"/>
+</kw>
+<kw name="Open Connection" owner="SSHLibrary">
+<arg>${VM_HOST}</arg>
+<arg>encoding=ISO-8859-1</arg>
+<doc>Opens a new SSH connection to the given ``host`` and ``port``.</doc>
+<status status="PASS" start="2025-06-11T11:20:42.385405" elapsed="0.000161"/>
+</kw>
+<kw name="Login" owner="SSHLibrary">
+<msg time="2025-06-11T11:20:42.385799" level="INFO">Logging into '192.168.220.84:22' as 'qwcontrol'.</msg>
+<msg time="2025-06-11T11:20:43.806407" level="INFO">Read output: Last login: Wed Jun 11 11:09:02 2025 from 192.168.35.102
+[?2004h[qwcontrol@fedora ~]$</msg>
+<arg>${VM_USER}</arg>
+<arg>${VM_PASS}</arg>
+<doc>Logs into the SSH server with the given ``username`` and ``password``.</doc>
+<status status="PASS" start="2025-06-11T11:20:42.385651" elapsed="1.421224"/>
+</kw>
+<kw name="Execute Command" owner="SSHLibrary">
+<msg time="2025-06-11T11:20:43.808287" level="INFO">Executing command 'unset PROMPT_COMMAND'.</msg>
+<msg time="2025-06-11T11:20:43.903139" level="INFO">Command exited with return code 0.</msg>
+<arg>unset PROMPT_COMMAND</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<status status="PASS" start="2025-06-11T11:20:43.807619" elapsed="0.095766"/>
+</kw>
+<kw name="Execute Command" owner="SSHLibrary">
+<msg time="2025-06-11T11:20:43.904118" level="INFO">Executing command 'export LANG=en_US.UTF-8 &amp;&amp; export LC_ALL=en_US.UTF-8 &amp;&amp; export TERM=xterm'.</msg>
+<msg time="2025-06-11T11:20:44.217309" level="INFO">Command exited with return code 0.</msg>
+<arg>export LANG=en_US.UTF-8 &amp;&amp; export LC_ALL=en_US.UTF-8 &amp;&amp; export TERM=xterm</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<status status="PASS" start="2025-06-11T11:20:43.903814" elapsed="0.313807"/>
+</kw>
+<kw name="Execute Command" owner="SSHLibrary">
+<msg time="2025-06-11T11:20:44.218587" level="INFO">Executing command 'sudo systemctl daemon-reexec'.</msg>
+<msg time="2025-06-11T11:20:45.762924" level="INFO">Command exited with return code 0.</msg>
+<arg>sudo systemctl daemon-reexec</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<status status="PASS" start="2025-06-11T11:20:44.218228" elapsed="1.544952"/>
+</kw>
+<kw name="Execute Command" owner="SSHLibrary">
+<msg time="2025-06-11T11:20:45.764037" level="INFO">Executing command 'sudo systemctl daemon-reload'.</msg>
+<msg time="2025-06-11T11:20:46.957812" level="INFO">Command exited with return code 0.</msg>
+<arg>sudo systemctl daemon-reload</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<status status="PASS" start="2025-06-11T11:20:45.763739" elapsed="1.194387"/>
+</kw>
+<kw name="Execute Command" owner="SSHLibrary">
+<msg time="2025-06-11T11:20:46.959009" level="INFO">Executing command 'sudo systemctl enable monitor_qwcontrol.service'.</msg>
+<msg time="2025-06-11T11:20:48.067466" level="INFO">Command exited with return code 0.</msg>
+<arg>sudo systemctl enable monitor_qwcontrol.service</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<status status="PASS" start="2025-06-11T11:20:46.958670" elapsed="1.109030"/>
+</kw>
+<kw name="Execute Command" owner="SSHLibrary">
+<msg time="2025-06-11T11:20:48.068491" level="INFO">Executing command 'sudo systemctl start monitor_qwcontrol.service'.</msg>
+<msg time="2025-06-11T11:20:48.473157" level="INFO">Command exited with return code 0.</msg>
+<arg>sudo systemctl start monitor_qwcontrol.service</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<status status="PASS" start="2025-06-11T11:20:48.068163" elapsed="0.405236"/>
+</kw>
+<kw name="Execute Command" owner="SSHLibrary">
+<msg time="2025-06-11T11:20:48.474256" level="INFO">Executing command 'echo '{"id": 1, "nome": "Lucas", "status": "teste"}' &gt; /home/qwcontrol/filetransfer/job_cf8576d1d10d45598c3c9e101ec0cabb.json'.</msg>
+<msg time="2025-06-11T11:20:48.891032" level="INFO">Command exited with return code 0.</msg>
+<arg>echo '{"id": 1, "nome": "Lucas", "status": "teste"}' &gt; ${DESTINO}</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<status status="PASS" start="2025-06-11T11:20:48.473877" elapsed="0.417450"/>
+</kw>
+<kw name="Execute Command" owner="SSHLibrary">
+<msg time="2025-06-11T11:20:48.892388" level="INFO">Executing command 'cat /opt/qwcontrol-watcher/logs/monitor.log'.</msg>
+<msg time="2025-06-11T11:20:49.312348" level="INFO">Command exited with return code 0.</msg>
+<msg time="2025-06-11T11:20:49.312738" level="INFO">${log_output} = 2025-05-29 15:13:36 - Monitor iniciado.
+2025-05-29 15:13:41 - Monitor iniciado.
+2025-05-29 15:13:46 - Monitor iniciado.
+2025-05-29 15:13:52 - Monitor iniciado.
+2025-05-29 15:13:57 - Monitor iniciado.
+...</msg>
+<var>${log_output}</var>
+<arg>cat /opt/qwcontrol-watcher/logs/monitor.log</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<status status="PASS" start="2025-06-11T11:20:48.891967" elapsed="0.420863"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${log_output}</arg>
+<arg>${nome_arquivo}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-06-11T11:20:49.313428" elapsed="0.000677"/>
+</kw>
+<kw name="Execute Command" owner="SSHLibrary">
+<msg time="2025-06-11T11:20:49.314968" level="INFO">Executing command 'grep job_cf8576d1d10d45598c3c9e101ec0cabb.json /opt/qwcontrol-watcher/logs/monitor.log'.</msg>
+<msg time="2025-06-11T11:20:49.463436" level="INFO">Command exited with return code 0.</msg>
+<msg time="2025-06-11T11:20:49.463896" level="INFO">${verificacao} = 2025-06-11 11:20:48 - Novo arquivo detectado: /home/qwcontrol/filetransfer/job_cf8576d1d10d45598c3c9e101ec0cabb.json
+{"jobId":"7b2abd42-7b04-49ef-ace8-f0e55ddbd2dc","executionId":"173498"}2025-06-11 1...</msg>
+<var>${verificacao}</var>
+<arg>grep ${nome_arquivo} /opt/qwcontrol-watcher/logs/monitor.log</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<status status="PASS" start="2025-06-11T11:20:49.314576" elapsed="0.149416"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2025-06-11T11:20:49.465055" level="INFO">Length is 309.</msg>
+<arg>${verificacao}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2025-06-11T11:20:49.464550" elapsed="0.000660"/>
+</kw>
+<kw name="Execute Command" owner="SSHLibrary">
+<msg time="2025-06-11T11:20:49.466188" level="INFO">Executing command 'sudo systemctl stop monitor_qwcontrol.service'.</msg>
+<msg time="2025-06-11T11:20:49.888721" level="INFO">Command exited with return code 0.</msg>
+<arg>sudo systemctl stop monitor_qwcontrol.service</arg>
+<doc>Executes ``command`` on the remote machine and returns its outputs.</doc>
+<status status="PASS" start="2025-06-11T11:20:49.465878" elapsed="0.423123"/>
+</kw>
+<kw name="Close Connection" owner="SSHLibrary">
+<doc>Closes the current connection.</doc>
+<status status="PASS" start="2025-06-11T11:20:49.889503" elapsed="0.000784"/>
+</kw>
+<status status="PASS" start="2025-06-11T11:20:42.383688" elapsed="7.507016"/>
+</test>
+<status status="PASS" start="2025-06-11T11:20:42.273145" elapsed="7.618599"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="MF001 SubmissãodeJobs" id="s1" pass="1" fail="0" skip="0">MF001 SubmissãodeJobs</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

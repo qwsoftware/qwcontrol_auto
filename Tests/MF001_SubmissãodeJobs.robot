@@ -5,7 +5,7 @@ Library           SeleniumLibrary
 Resource    ../Resources/Screens/setup.resource
 
 *** Variables ***
-${VM_HOST}    192.168.220.106
+${VM_HOST}    192.168.220.84
 ${VM_USER}    qwcontrol
 ${VM_PASS}    lucas0206
 
@@ -18,9 +18,12 @@ Ativar Monitor E Transferir Arquivo
     ${DESTINO}=           Set Variable    /home/qwcontrol/filetransfer/${nome_arquivo}
     Log To Console        Arquivo gerado: "${nome_arquivo}"
 
-
-    Open Connection    ${VM_HOST}
+    Open Connection    ${VM_HOST}    encoding=ISO-8859-1
     Login              ${VM_USER}    ${VM_PASS}
+    Execute Command    unset PROMPT_COMMAND
+    Execute Command    export LANG=en_US.UTF-8 && export LC_ALL=en_US.UTF-8 && export TERM=xterm
+
+
 
     # Comandos diretos
     Execute Command    sudo systemctl daemon-reexec
