@@ -26,7 +26,7 @@ Testar sempre após atualizações:
 # - Dependencias entre projetos
 # - ForceRun
 # - ForceRun de JOB pelo monitoramento
-- Hold/Release(Individual e Full) 
+# - Hold/Release(Individual e Full) 
 # - Pendencias da Daily Hab/Des 
 # - Opção para alterar horário de execução do JOB sem alterar o agendamento padrão
 # - Cadastro de Incidente
