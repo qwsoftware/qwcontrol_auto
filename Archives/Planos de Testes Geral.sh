@@ -14,6 +14,7 @@ Testar sempre após atualizações:
     - Verificar se o fluxo roda certo, depois de ja ter rodado o fluxo anteriormente na Daily
 - Entrada correta na Virada da Daily
     - Verificar se Jobs que não devem entrar na Daily
+    - Jobs rodando na virada da Daily
 - Entrada correta na Virada da Daily com Servidor Off
     - Verificar Pendencias
 - E-mail
@@ -34,6 +35,7 @@ Testar sempre após atualizações:
 - Execução dos jobs após compose down no periodo do agendamento
     - Verificar se o fluxo roda certo, depois de ja ter rodado o fluxo anteriormente na Daily
 - Entrada correta na Virada da Daily
+    - Jobs rodando na virada da Daily
     - Verificar se Jobs que não devem entrar na Daily
 - Entrada correta na Virada da Daily com Servidor Off 
     - Verificar Pendencias
