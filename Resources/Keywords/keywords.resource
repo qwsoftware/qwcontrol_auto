@@ -5,7 +5,7 @@ Resource    ../Screens/setup.resource
 *** Keywords ***
 Abrir Navegador
     [Arguments]     ${url}
-    Open Browser    ${url}       headlesschrome    
+    Open Browser    ${url}       chrome    
     Maximize Browser Window
 
 Fechar Navegador
@@ -201,7 +201,7 @@ E preencho todos os campos nescessarios
     Click Element                    locator=(//span[contains(.,'- Execute um comando remoto')])[1]
     Wait Until Element Is Enabled    locator=//input[@placeholder='Digite o comando shell, por exemplo: echo este é um teste']
     Input Text                       locator=//input[@placeholder='Digite o comando shell, por exemplo: echo este é um teste']    text=ls -la
-    Click Element                    locator=//span[@class='btn btn-cta btn-sm'][contains(.,'Salvar')]
+    Click Element                    locator=(//span[contains(.,'Salvar')])[2]
     Click Element                    locator=//a[contains(.,'Agendamento')]
     Wait Until Element Is Enabled    locator=//input[contains(@id,'scheduledTrue')]
     Click Element                    locator=//input[contains(@id,'scheduledTrue')]
