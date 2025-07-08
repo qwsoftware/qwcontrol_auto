@@ -186,13 +186,22 @@ Quando clico no botão "+ Novo job"
     
 E preencho todos os campos nescessarios
     Wait Until Element Is Visible    locator=//input[contains(@name,'jobName')]
+    Wait Until Element Is Visible    locator=//a[normalize-space()='Fluxo de trabalho']
+    Wait Until Element Is Visible    locator=//span[@class='vue-ui-socket']
+    Wait Until Element Is Visible    locator=//a[normalize-space()='Agendamento']
+    Wait Until Element Is Visible    locator=//a[normalize-space()='Notificações']
+    Wait Until Element Is Visible    locator=//a[normalize-space()='Plugins de Execução']
+    Wait Until Element Is Visible    locator=//a[normalize-space()='Outros']
+    Wait Until Element Is Visible    locator=//a[normalize-space()='Ação']
+    Wait Until Element Is Visible    locator=//a[@data-toggle='tab'][normalize-space()='Gerenciar Recursos']
+    Wait Until Element Is Visible    locator=//a[normalize-space()='Calendário']
     Input Text                       locator=//input[contains(@name,'jobName')]    text=testeautomação
     Click Element                    locator=//a[contains(.,'Fluxo de trabalho')]
     Wait Until Element Is Visible    locator=(//span[contains(.,'- Execute um comando remoto')])[1]
     Click Element                    locator=(//span[contains(.,'- Execute um comando remoto')])[1]
     Wait Until Element Is Enabled    locator=//input[@placeholder='Digite o comando shell, por exemplo: echo este é um teste']
     Input Text                       locator=//input[@placeholder='Digite o comando shell, por exemplo: echo este é um teste']    text=ls -la
-    Click Element                    locator=//span[@class='btn btn-cta btn-sm'][contains(.,'Salvar')]
+    Execute Javascript               document.querySelector("span[title='Salve o novo passo']")
     Click Element                    locator=//a[contains(.,'Agendamento')]
     Wait Until Element Is Enabled    locator=//input[contains(@id,'scheduledTrue')]
     Click Element                    locator=//input[contains(@id,'scheduledTrue')]
@@ -201,7 +210,7 @@ E preencho todos os campos nescessarios
     Select From List By Label        xpath=//label[normalize-space(.)='Clique aqui para selecionar um calendário:']/following-sibling::select    CalendarioAutomação
     Select From List By Label        xpath=//label[normalize-space(.)='Regra para Feriado:']/following-sibling::select[1]    Nunca
     Select From List By Label        xpath=//label[normalize-space(.)='Dia de Execução']/following-sibling::select[1]    Dia Util Seguinte/Anterior
-    Click Button                     locator=(//button[@class='btn btn-success btn-lg'][contains(.,'Adicionar')])[2]
+    Execute JavaScript               document.querySelector("button.btn.btn-success.btn-lg")?.click()
     Click Element                    locator=//input[contains(@name,'Create')]
 
 Então devo visualiza a pagina do teste

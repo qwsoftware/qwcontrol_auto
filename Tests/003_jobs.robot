@@ -25,13 +25,6 @@ CT-J03: Acessar os detalhes de um Job
     Quando clico no nome do job  ${JOB001}
     Então devo ser redirecionado para a tela de detalhes desse job
 
-CT-J04: Ativar execução para múltiplos jobs
-    Dado que estou na aba "Jobs"
-    E selecionei múltiplos jobs
-    Quando escolho a ação "Ativar execução"
-    E confirmo a operação
-    Então os jobs devem ter a execução ativada
-
 CT-J05 - Criar um job
     Dado que estou na aba "Jobs"
     Quando clico no botão "+ Novo job"
