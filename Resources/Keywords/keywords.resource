@@ -211,7 +211,7 @@ E preencho todos os campos nescessarios
     Select From List By Label        xpath=//label[normalize-space(.)='Clique aqui para selecionar um calendário:']/following-sibling::select    CalendarioAutomação
     Select From List By Label        xpath=//label[normalize-space(.)='Regra para Feriado:']/following-sibling::select[1]    Nunca
     Select From List By Label        xpath=//label[normalize-space(.)='Dia de Execução']/following-sibling::select[1]    Dia Util Seguinte/Anterior
-    Execute JavaScript               document.querySelector("button.btn.btn-success.btn-lg")?.click()
+    Click Button              locator=(//button[@class='btn btn-success btn-lg'][contains(.,'Adicionar')])[2]
     Click Element                    locator=//input[contains(@name,'Create')]
 
 Então devo visualiza a pagina do teste
