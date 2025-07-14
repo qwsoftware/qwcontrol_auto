@@ -142,6 +142,7 @@ Dado que estou logado na aplicação
     Quando realizo o login    ${LOGIN.QW50}    ${SENHA.QW50}
     Wait Until Element Is Visible    locator=//a[contains(.,'Projetos')]
     Click Element                    locator=//a[contains(.,'Projetos')]
+    Wait Until Element Is Visible    locator=//a[contains(.,'Create Project')]
     Wait Until Element Is Enabled    locator=//input[contains(@type,'text')]
     Input Text                       locator=//input[contains(@type,'text')]    text=QATestes
     Wait Until Element Is Enabled    locator=//span[@class='text-ellipsis'][contains(.,'QATestes QaTestesFuncionais')]
@@ -150,17 +151,34 @@ Dado que estou logado na aplicação
 Quando clico na aba Dashboard
     Wait Until Element Is Visible    locator=//i[contains(@class,'vsm--icon fas fa-tachometer-alt fa-lg')]
     Click Element                    locator=//i[contains(@class,'vsm--icon fas fa-tachometer-alt fa-lg')]
+    Element Should Be Visible        locator=//a[@class='navbar-brand nav-ui-link cursor-pointer'][contains(.,'Monitoramento')]
+    Element Should Be Visible        locator=//a[@class='navbar-brand nav-ui-link dropdown-toggle cursor-pointer'][contains(.,'Sistema')]
+    Click Element                    locator=//a[@class='navbar-brand nav-ui-link dropdown-toggle cursor-pointer'][contains(.,'Sistema')]
+    Element Should Be Visible        locator=//a[contains(.,'Armazenamento de chaves')]
+    Element Should Be Visible        locator=//a[contains(.,'Controle de Acesso')]
+    Element Should Be Visible        locator=//a[contains(.,'Armazenamento de Log')]
 
 Então devo visualizar o painel do Dashboard
     Wait Until Element Is Visible    locator=//span[@class='text-h3'][contains(.,'Dashboard')]
-    Element Should Be Visible    locator=//a[@class='vsm--link vsm--link_level-1'][contains(.,'Jobs')]
-    Element Should Be Visible    locator=//a[@class='vsm--link vsm--link_level-1'][contains(.,'Nós')]
-    Element Should Be Visible    locator=//a[@class='vsm--link vsm--link_level-1'][contains(.,'Comandos')]
-    Element Should Be Visible    locator=//a[@class='vsm--link vsm--link_level-1'][contains(.,'Atividades')]
-    Element Should Be Visible    locator=//a[@class='vsm--link vsm--link_level-1'][contains(.,'Webhooks')]
-    Element Should Be Visible    locator=//a[@class='vsm--link vsm--link_level-1'][contains(.,'Calendários')]
-    Element Should Be Visible    locator=//a[@class='vsm--link vsm--link_level-1'][contains(.,'Virtual Automator')]
-
+    Element Should Be Visible        locator=//a[@class='vsm--link vsm--link_level-1'][contains(.,'Jobs')]
+    Element Should Be Visible        locator=//a[@class='vsm--link vsm--link_level-1'][contains(.,'Nós')]
+    Element Should Be Visible        locator=//a[@class='vsm--link vsm--link_level-1'][contains(.,'Comandos')]
+    Element Should Be Visible        locator=//a[@class='vsm--link vsm--link_level-1'][contains(.,'Atividades')]
+    Element Should Be Visible        locator=//a[@class='vsm--link vsm--link_level-1'][contains(.,'Webhooks')]
+    Element Should Be Visible        locator=//a[@class='vsm--link vsm--link_level-1'][contains(.,'Calendários')]
+    Element Should Be Visible        locator=//a[@class='vsm--link vsm--link_level-1'][contains(.,'Virtual Automator')]
+    Element Should Be Visible        locator=//a[@class='vsm--link vsm--link_level-1'][contains(.,'Configurações de projeto')]
+    Mouse Over                       locator=//a[@class='vsm--link vsm--link_level-1'][contains(.,'Configurações de projeto')]
+    Element Should Be Visible        locator=//span[contains(.,'Editar configuração')]
+    Element Should Be Visible        locator=//span[contains(.,'Armazenamento de chaves')]
+    Element Should Be Visible        locator=//span[contains(.,'Editar nós')]
+    Element Should Be Visible        locator=//span[contains(.,'Controle de Acesso')]
+    Element Should Be Visible        locator=//span[contains(.,'Editar Leia-me')]
+    Element Should Be Visible        locator=//span[contains(.,'Editar mensagem do dia')]
+    Element Should Be Visible        locator=//span[contains(.,'Configurar SCM')]
+    Element Should Be Visible        locator=//span[contains(.,'Arquivo de Exportação')]
+    Element Should Be Visible        locator=//span[contains(.,'Arquivo de Importação')]
+    Element Should Be Visible        locator=//span[contains(.,'Excluir projeto')]
 
 Então devo visualiza a tela de jobs
     Wait Until Element Is Visible    locator=//a[@class='link-quiet'][contains(.,'Todos os Jobs')]
