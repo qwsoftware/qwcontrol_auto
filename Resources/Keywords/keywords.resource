@@ -153,6 +153,14 @@ Quando clico na aba Dashboard
 
 Então devo visualizar o painel do Dashboard
     Wait Until Element Is Visible    locator=//span[@class='text-h3'][contains(.,'Dashboard')]
+    Element Should Be Visible    locator=//a[@class='vsm--link vsm--link_level-1'][contains(.,'Jobs')]
+    Element Should Be Visible    locator=//a[@class='vsm--link vsm--link_level-1'][contains(.,'Nós')]
+    Element Should Be Visible    locator=//a[@class='vsm--link vsm--link_level-1'][contains(.,'Comandos')]
+    Element Should Be Visible    locator=//a[@class='vsm--link vsm--link_level-1'][contains(.,'Atividades')]
+    Element Should Be Visible    locator=//a[@class='vsm--link vsm--link_level-1'][contains(.,'Webhooks')]
+    Element Should Be Visible    locator=//a[@class='vsm--link vsm--link_level-1'][contains(.,'Calendários')]
+    Element Should Be Visible    locator=//a[@class='vsm--link vsm--link_level-1'][contains(.,'Virtual Automator')]
+
 
 Então devo visualiza a tela de jobs
     Wait Until Element Is Visible    locator=//a[@class='link-quiet'][contains(.,'Todos os Jobs')]
