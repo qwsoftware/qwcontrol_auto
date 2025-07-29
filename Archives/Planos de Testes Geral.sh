@@ -21,6 +21,7 @@ Testar sempre após atualizações:
 - Jobs Ciclicos
     - Reagendamento correto em caso de exceder horário
     - Flag de parar ou contuniar o agendamento
+    - Comportamento ao derrubar o servidor com job ciclico rodando
 
 SQLserver:
 Testar sempre após atualizações:
