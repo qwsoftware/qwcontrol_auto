@@ -45,7 +45,6 @@ Testar sempre após atualizações:
     - Verificar Pendencias
 - E-mail
 - Jobs Ciclicos
-    - Comportamento com Job rodando durante a virada da daily
     - Reagendamento correto em caso de exceder horário
     - Flag de parar ou contuniar o agendamento
     - Comportamento ao derrubar o servidor com job ciclico rodando
