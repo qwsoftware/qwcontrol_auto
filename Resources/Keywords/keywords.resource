@@ -327,3 +327,15 @@ E confirmo a operação
 Então os jobs devem ter a execução ativada
     Wait Until Element Is Visible    locator=//li[contains(.,'A execução do job foi ativada para: FluxoCondicionais/Job001')]
     Page Should Contain Element    locator=//li[contains(.,'A execução do job foi ativada para:')]
+
+Quando clico em editar configurações
+    Click Element    locator=(//span[contains(@class,'default')])[3]
+    Wait Until Element Is Enabled    locator=//span[contains(.,'Configurações de projeto')]
+    Click Element    locator=//span[contains(.,'Configurações de projeto')]
+    Wait Until Element Is Enabled    locator=//span[contains(.,'Configurações de projeto')]
+    Wait Until Element Is Visible    locator=//span[contains(.,'Configurações de projeto')]
+    Sleep    5s
+    Click Element    locator=//span[contains(.,'Configurações de projeto')]
+
+Então devo visualiza
+    Wait Until Element Is Visible    locator=//a[contains(@class,'has_tooltip pull-right btn btn-default btn-sm')]

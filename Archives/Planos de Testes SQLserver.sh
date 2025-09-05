@@ -7,6 +7,7 @@ Testar sempre após atualizações:
 - ForceRun
 - ForceRun de JOB pelo monitoramento 
 - Hold/Release(Individual e Full)
+    - Hold com JOB Ciclico/Normal executando(Verificar se não sai do hold) #Quando acontece o HOLD com jobciclico executando, após acabar a execução o job sai de hold.
 - Pendencias da Daily Hab/Des 
 - Opção para alterar horário de execução do JOB sem alterar o agendamento padrão
 - Cadastro de Incidente
@@ -32,7 +33,7 @@ Novos Testes:
 
 atualizações 4.8.4:
 melhoria colocar icone no grafico de fluxo para vizualizar o fluxo de outro projeto, mostra fluxo entre outros projeto.
-melhoria melhoria de auditoria(Agora mostra modificações)
+melhoria de auditoria(Agora mostra modificações)
 interface para criar editar acls 
 Relatorio sendo gerado de acordo com dados filtrados
 melhoria adicionar procedimentos agendamentos jobs ciclicos (flag "N")
