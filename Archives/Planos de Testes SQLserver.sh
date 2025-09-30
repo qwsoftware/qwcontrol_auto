@@ -5,7 +5,8 @@ Testar sempre após atualizações:
 - Fluxo de JOBS
 - Dependencias entre projetos
 - ForceRun
-- ForceRun de JOB pelo monitoramento 
+- ForceRun de JOB pelo monitoramento
+- Reexecutar jobs pelo botão verde do monitoramento
 - Hold/Release(Individual e Full)
     - Hold com JOB Ciclico/Normal executando(Verificar se não sai do hold) #Quando acontece o HOLD com jobciclico executando, após acabar a execução o job sai de hold.
 - Pendencias da Daily Hab/Des 

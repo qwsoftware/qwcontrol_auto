@@ -7,6 +7,7 @@ Testar sempre após atualizações:
 - Dependencias entre projetos
 - ForceRun
 - ForceRun de JOB pelo monitoramento 
+- Reexecutar jobs pelo botão verde do monitoramento
 - Hold/Release(Individual e Full)
 - Pendencias da Daily Hab/Des
 - Opção para alterar horário de execução do JOB sem alterar o agendamento padrão
